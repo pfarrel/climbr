@@ -1,0 +1,22 @@
+﻿@model Web.Models.Climb
+
+@{
+    ViewBag.Title = "Climb Details";
+}
+
+<h2>Climb Details</h2>
+
+<fieldset>
+    <legend>Climb</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Succeeded)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Succeeded)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -25,11 +25,11 @@ namespace Web.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<ClimbrContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new ClimbrContext())
                     {
                         if (!context.Database.Exists())
                         {

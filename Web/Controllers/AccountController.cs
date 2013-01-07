@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using Climbr.Filters;
-using Climbr.Models;
+using Web.Filters;
+using Web.Models;
 
-namespace Climbr.Controllers
+namespace Web.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

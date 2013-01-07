@@ -8,13 +8,15 @@ using System.Web.Security;
 
 namespace Web.Models
 {
-    [Table("UserProfile")]
-    public class UserProfile
+    [Table("Users")]
+    public class User
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
+        [Key, DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string UserName { get; set; }
+        public DbSet<Climb> Climbs { get; set; }
+        public DbSet<Route> AddedRoutes { get; set; }
+        public DbSet<Location> AddedLocations { get; set; }
     }
 
     public class RegisterExternalLoginModel

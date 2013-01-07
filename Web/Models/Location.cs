@@ -16,5 +16,6 @@ namespace Web.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public DbSet<Route> Routes { get; set; }
+        public User AddedBy { get; set; }
     }
 }

@@ -11,15 +11,15 @@ namespace Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Web.Models.ClimbrContext context)
         {
             WebSecurity.InitializeDatabaseConnection(
                 "DefaultConnection",
-                "UserProfile",
-                "UserId",
+                "Users",
+                "Id",
                 "UserName", autoCreateTables: true);
 
             if (!Roles.RoleExists("Administrator"))

@@ -265,12 +265,12 @@ namespace Web.Controllers
                 // Insert a new user into the database
                 using (ClimbrContext db = new ClimbrContext())
                 {
-                    User user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+                    User user = db.Users.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new User { UserName = model.UserName });
+                        db.Users.Add(new User { UserName = model.UserName });
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);

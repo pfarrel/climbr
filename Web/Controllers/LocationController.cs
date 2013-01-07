@@ -50,6 +50,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                location.AddedBy = db.Users.Single(u => u.UserName == User.Identity.Name);
                 db.Locations.Add(location);
                 db.SaveChanges();
                 return RedirectToAction("Index");

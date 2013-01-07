@@ -14,8 +14,8 @@ namespace Web.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Route Route { get; set; }
+        public virtual Route Route { get; set; }
         public bool Succeeded { get; set; }
-        public User Climber { get; set; }
+        public virtual User Climber { get; set; }
     }
 }

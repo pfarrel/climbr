@@ -15,7 +15,7 @@ namespace Web.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public DbSet<Route> Routes { get; set; }
-        public User AddedBy { get; set; }
+        public virtual List<Route> Routes { get; set; }
+        public virtual User AddedBy { get; set; }
     }
 }

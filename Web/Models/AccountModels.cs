@@ -14,9 +14,9 @@ namespace Web.Models
         [Key, DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string UserName { get; set; }
-        public DbSet<Climb> Climbs { get; set; }
-        public DbSet<Route> AddedRoutes { get; set; }
-        public DbSet<Location> AddedLocations { get; set; }
+        public virtual List<Climb> Climbs { get; set; }
+        public virtual List<Route> AddedRoutes { get; set; }
+        public virtual List<Location> AddedLocations { get; set; }
     }
 
     public class RegisterExternalLoginModel

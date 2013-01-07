@@ -14,7 +14,7 @@ namespace Web.Models
 
         }
 
-        public DbSet<User> UserProfiles { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Route> Routes { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Climb> Climbs { get; set; }

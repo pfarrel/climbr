@@ -24,7 +24,7 @@
             @Html.LabelFor(model => model.Grade)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Grade)
+            @Html.DropDownListFor(model => model.Grade, new SelectList(ViewBag.Grades))
             @Html.ValidationMessageFor(model => model.Grade)
         </div>
 

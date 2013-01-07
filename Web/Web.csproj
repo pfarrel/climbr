@@ -164,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClimbController.cs" />
+    <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
@@ -175,10 +176,19 @@
     <Compile Include="Migrations\201301071702163_InitialCreate.Designer.cs">
       <DependentUpon>201301071702163_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201301071812499_AddGradesTable.cs" />
+    <Compile Include="Migrations\201301071812499_AddGradesTable.Designer.cs">
+      <DependentUpon>201301071812499_AddGradesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201301071833076_MakeInitialFieldsRequired.cs" />
+    <Compile Include="Migrations\201301071833076_MakeInitialFieldsRequired.Designer.cs">
+      <DependentUpon>201301071833076_MakeInitialFieldsRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ClimbrContext.cs" />
     <Compile Include="Models\Climb.cs" />
+    <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +329,8 @@
     <Content Include="Views\Climb\Create.cshtml" />
     <Content Include="Views\Climb\Edit.cshtml" />
     <Content Include="Views\Climb\Delete.cshtml" />
+    <Content Include="Views\Grade\Index.cshtml" />
+    <Content Include="Views\Grade\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +341,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201301071702163_InitialCreate.resx">
       <DependentUpon>201301071702163_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301071812499_AddGradesTable.resx">
+      <DependentUpon>201301071812499_AddGradesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301071833076_MakeInitialFieldsRequired.resx">
+      <DependentUpon>201301071833076_MakeInitialFieldsRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

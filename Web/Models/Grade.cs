@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace Web.Models
 {
-    [Table("Climbs")]
-    public class Climb
+    [Table("Grades")]
+    public class Grade
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        public virtual Route Route { get; set; }
+        public string Name { get; set; }
 
-        [Required]
-        public bool Succeeded { get; set; }
-
-        public virtual User Climber { get; set; }
+        public virtual List<Route> Routes { get; set; }
     }
 }

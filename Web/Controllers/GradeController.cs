@@ -9,105 +9,104 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    public class RouteController : Controller
+    public class GradeController : Controller
     {
         private ClimbrContext db = new ClimbrContext();
 
         //
-        // GET: /Route/
+        // GET: /Grade/
 
         public ActionResult Index()
         {
-            return View(db.Routes.ToList());
+            return View(db.Grades.ToList());
         }
 
         //
-        // GET: /Route/Details/5
+        // GET: /Grade/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Route route = db.Routes.Find(id);
-            if (route == null)
+            Grade grade = db.Grades.Find(id);
+            if (grade == null)
             {
                 return HttpNotFound();
             }
-            return View(route);
+            return View(grade);
         }
 
         //
-        // GET: /Route/Create
+        // GET: /Grade/Create
 
         public ActionResult Create()
         {
-            ViewBag.Grades = db.Grades.ToList();
             return View();
         }
 
         //
-        // POST: /Route/Create
+        // POST: /Grade/Create
 
         [HttpPost]
-        public ActionResult Create(Route route)
+        public ActionResult Create(Grade grade)
         {
             if (ModelState.IsValid)
             {
-                db.Routes.Add(route);
+                db.Grades.Add(grade);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(route);
+            return View(grade);
         }
 
         //
-        // GET: /Route/Edit/5
+        // GET: /Grade/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Route route = db.Routes.Find(id);
-            if (route == null)
+            Grade grade = db.Grades.Find(id);
+            if (grade == null)
             {
                 return HttpNotFound();
             }
-            return View(route);
+            return View(grade);
         }
 
         //
-        // POST: /Route/Edit/5
+        // POST: /Grade/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Route route)
+        public ActionResult Edit(Grade grade)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(route).State = EntityState.Modified;
+                db.Entry(grade).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(route);
+            return View(grade);
         }
 
         //
-        // GET: /Route/Delete/5
+        // GET: /Grade/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Route route = db.Routes.Find(id);
-            if (route == null)
+            Grade grade = db.Grades.Find(id);
+            if (grade == null)
             {
                 return HttpNotFound();
             }
-            return View(route);
+            return View(grade);
         }
 
         //
-        // POST: /Route/Delete/5
+        // POST: /Grade/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Route route = db.Routes.Find(id);
-            db.Routes.Remove(route);
+            Grade grade = db.Grades.Find(id);
+            db.Grades.Remove(grade);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

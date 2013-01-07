@@ -14,9 +14,17 @@ namespace Web.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
-        public string Grade { get; set; }
-        public Location Location { get; set; }
-        public User AddedBy { get; set; }
+
+        [Required]
+        public virtual Grade Grade { get; set; }
+
+        [Required]
+        public virtual Location Location { get; set; }
+
+        [Required]
+        public virtual User AddedBy { get; set; }
     }
 }

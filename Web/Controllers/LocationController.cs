@@ -46,9 +46,10 @@ namespace Web.Controllers
         // POST: /Location/Create
 
         [HttpPost]
-        public ActionResult Create(Location location)
+        public ActionResult Create(Location createlocation)
         {
-            if (ModelState.IsValid)
+            Location location = new Location();
+            if (TryUpdateModel(location))
             {
                 location.AddedBy = db.Users.Single(u => u.UserName == User.Identity.Name);
                 db.Locations.Add(location);
@@ -56,7 +57,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(location);
+            return View(createlocation);
         }
 
         //

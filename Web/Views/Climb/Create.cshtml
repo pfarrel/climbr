@@ -21,6 +21,22 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.ClimbTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ClimbTypeId, new SelectList(ViewBag.ClimbTypes, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.ClimbTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Attempts)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Attempts)
+            @Html.ValidationMessageFor(model => model.Attempts)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Succeeded)
         </div>
         <div class="editor-field">

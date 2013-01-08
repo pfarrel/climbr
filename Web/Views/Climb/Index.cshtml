@@ -18,7 +18,13 @@
             @Html.DisplayNameFor(model => model.Route)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ClimbType)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attempts)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Succeeded)
@@ -35,8 +41,14 @@
             @Html.DisplayFor(modelItem => item.Route.Name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ClimbType.Name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Attempts)
+        </th>
         <td>
             @Html.DisplayFor(modelItem => item.Succeeded)
         </td>

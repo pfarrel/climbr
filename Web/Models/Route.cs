@@ -27,6 +27,10 @@ namespace Web.Models
         public virtual Location Location { get; set; }
 
         [Required]
+        public int DefaultClimbTypeId { get; set; }
+        public virtual ClimbType DefaultClimbType { get; set; }
+
+        [Required]
         [Display(Name = "Added By")]
         public int AddedById { get; set; }
         public virtual User AddedBy { get; set; }

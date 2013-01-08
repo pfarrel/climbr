@@ -174,29 +174,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201301071702163_InitialCreate.cs" />
-    <Compile Include="Migrations\201301071702163_InitialCreate.Designer.cs">
-      <DependentUpon>201301071702163_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201301071812499_AddGradesTable.cs" />
-    <Compile Include="Migrations\201301071812499_AddGradesTable.Designer.cs">
-      <DependentUpon>201301071812499_AddGradesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201301071833076_MakeInitialFieldsRequired.cs" />
-    <Compile Include="Migrations\201301071833076_MakeInitialFieldsRequired.Designer.cs">
-      <DependentUpon>201301071833076_MakeInitialFieldsRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201301081122492_NameForeignKeyFields.cs" />
-    <Compile Include="Migrations\201301081122492_NameForeignKeyFields.Designer.cs">
-      <DependentUpon>201301081122492_NameForeignKeyFields.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ClimbrContext.cs" />
     <Compile Include="Models\Climb.cs" />
+    <Compile Include="Models\ClimbType.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\MyDbInitialiser.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -336,20 +320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201301071702163_InitialCreate.resx">
-      <DependentUpon>201301071702163_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201301071812499_AddGradesTable.resx">
-      <DependentUpon>201301071812499_AddGradesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201301071833076_MakeInitialFieldsRequired.resx">
-      <DependentUpon>201301071833076_MakeInitialFieldsRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201301081122492_NameForeignKeyFields.resx">
-      <DependentUpon>201301081122492_NameForeignKeyFields.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

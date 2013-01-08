@@ -20,7 +20,14 @@
          @Html.DisplayNameFor(model => model.Grade)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Grade)
+        @Html.DisplayFor(model => model.Grade.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefaultClimbType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefaultClimbType.Name)
     </div>
 </fieldset>
 <p>

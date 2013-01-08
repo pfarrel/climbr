@@ -37,6 +37,7 @@ namespace Web.Controllers
         public ActionResult Create()
         {
             ViewBag.Routes = db.Routes.ToList();
+            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
 
             return View();
         }
@@ -50,12 +51,15 @@ namespace Web.Controllers
             if (TryUpdateModel(climb))
             {
                 climb.Climber = db.Users.Single(u => u.UserName == User.Identity.Name);
+                climb.Date = DateTime.Now;
+
                 db.Climbs.Add(climb);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.Routes = db.Routes.ToList();
+            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
 
             return View(climb);
         }

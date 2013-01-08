@@ -36,6 +36,7 @@ namespace Web.Controllers
         // GET: /Route/Create
         public ActionResult Create()
         {
+            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
             ViewBag.Grades = db.Grades.ToList();
             ViewBag.Locations = db.Locations.ToList();
 
@@ -56,6 +57,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
             ViewBag.Grades = db.Grades.ToList();
             ViewBag.Locations = db.Locations.ToList();
 

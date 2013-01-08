@@ -23,15 +23,20 @@ namespace Web.Models
         public virtual Route Route { get; set; }
 
         [Required]
+        public int ClimbTypeId { get; set; }
+        public virtual ClimbType ClimbType { get; set; }
+
+        [Required]
         public bool Succeeded { get; set; }
+
+        [Required]
+        [Range(1,100)]
+        public int Attempts { get; set; }
+
+        public TimeSpan Duration { get; set; }
 
         [Required]
         public int ClimberId { get; set; }
         public virtual User Climber { get; set; }
-
-        public Climb()
-        {
-            Date = DateTime.Now;
-        }
     }
 }

@@ -18,6 +18,8 @@ namespace Web.Migrations
 
         protected override void Seed(Web.Models.ClimbrContext context)
         {
+            base.Seed(context);
+
             WebSecurity.InitializeDatabaseConnection(
                 "DefaultConnection",
                 "Users",
@@ -44,6 +46,13 @@ namespace Web.Migrations
                 new Grade { Name = "6a" },
                 new Grade { Name = "6b" },
                 new Grade { Name = "5c" });
+
+            context.ClimbTypes.AddOrUpdate(g => g.Name,
+                new ClimbType { Name = "Top-Rope" },
+                new ClimbType { Name = "Lead" },
+                new ClimbType { Name = "Bouldering" });
+
+            context.SaveChanges();
         }
     }
 }

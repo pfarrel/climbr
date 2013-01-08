@@ -13,6 +13,14 @@
         <legend>Climb</legend>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.RouteId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.RouteId, new SelectList(ViewBag.Routes, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.RouteId)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Succeeded)
         </div>
         <div class="editor-field">

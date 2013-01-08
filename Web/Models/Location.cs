@@ -18,6 +18,9 @@ namespace Web.Models
         [Required]
         public string Name { get; set; }
 
+        [Required]
+        [Display(Name = "Added By")]
+        public int AddedById { get; set; }
         public virtual User AddedBy { get; set; }
 
         public virtual List<Route> Routes { get; set; }

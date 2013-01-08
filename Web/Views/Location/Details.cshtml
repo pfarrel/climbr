@@ -17,13 +17,22 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddedBy.UserName)
+         @Html.DisplayNameFor(model => model.AddedBy)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.AddedBy.UserName)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Routes)
+    </div>
+    @foreach (var route in Model.Routes)
+    {
+        <div class="display-field">
+            @Html.DisplayFor((model) => route.Name)
+        </div>
+    }
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

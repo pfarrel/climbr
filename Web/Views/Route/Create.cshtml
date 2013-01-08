@@ -21,11 +21,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Grade)
+            @Html.LabelFor(model => model.GradeId)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.Grade, new SelectList(ViewBag.Grades))
-            @Html.ValidationMessageFor(model => model.Grade)
+            @Html.DropDownListFor(model => model.GradeId, new SelectList(ViewBag.Grades, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.GradeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LocationId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.LocationId)
         </div>
 
         <p>

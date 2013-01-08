@@ -19,7 +19,6 @@ namespace Web.Controllers
     {
         //
         // GET: /Account/Login
-
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -29,7 +28,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/Login
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -47,7 +45,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/LogOff
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -59,7 +56,6 @@ namespace Web.Controllers
 
         //
         // GET: /Account/Register
-
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -68,7 +64,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/Register
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -95,7 +90,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/Disassociate
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(string provider, string providerUserId)
@@ -124,7 +118,6 @@ namespace Web.Controllers
 
         //
         // GET: /Account/Manage
-
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -139,7 +132,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/Manage
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
@@ -202,7 +194,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/ExternalLogin
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -213,7 +204,6 @@ namespace Web.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-
         [AllowAnonymous]
         public ActionResult ExternalLoginCallback(string returnUrl)
         {
@@ -246,7 +236,6 @@ namespace Web.Controllers
 
         //
         // POST: /Account/ExternalLoginConfirmation
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -292,7 +281,6 @@ namespace Web.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {

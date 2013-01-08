@@ -19,12 +19,16 @@ namespace Web.Models
         public string Name { get; set; }
 
         [Required]
+        public int GradeId { get; set; }
         public virtual Grade Grade { get; set; }
 
         [Required]
+        public int LocationId { get; set; }
         public virtual Location Location { get; set; }
 
         [Required]
+        [Display(Name = "Added By")]
+        public int AddedById { get; set; }
         public virtual User AddedBy { get; set; }
     }
 }

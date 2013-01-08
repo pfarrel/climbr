@@ -15,7 +15,6 @@ namespace Web.Controllers
 
         //
         // GET: /Grade/
-
         public ActionResult Index()
         {
             return View(db.Grades.ToList());
@@ -23,7 +22,6 @@ namespace Web.Controllers
 
         //
         // GET: /Grade/Details/5
-
         public ActionResult Details(int id = 0)
         {
             Grade grade = db.Grades.Find(id);
@@ -36,7 +34,6 @@ namespace Web.Controllers
 
         //
         // GET: /Grade/Create
-
         public ActionResult Create()
         {
             return View();
@@ -44,7 +41,6 @@ namespace Web.Controllers
 
         //
         // POST: /Grade/Create
-
         [HttpPost]
         public ActionResult Create(Grade grade)
         {
@@ -56,59 +52,6 @@ namespace Web.Controllers
             }
 
             return View(grade);
-        }
-
-        //
-        // GET: /Grade/Edit/5
-
-        public ActionResult Edit(int id = 0)
-        {
-            Grade grade = db.Grades.Find(id);
-            if (grade == null)
-            {
-                return HttpNotFound();
-            }
-            return View(grade);
-        }
-
-        //
-        // POST: /Grade/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(Grade grade)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(grade).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(grade);
-        }
-
-        //
-        // GET: /Grade/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Grade grade = db.Grades.Find(id);
-            if (grade == null)
-            {
-                return HttpNotFound();
-            }
-            return View(grade);
-        }
-
-        //
-        // POST: /Grade/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Grade grade = db.Grades.Find(id);
-            db.Grades.Remove(grade);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

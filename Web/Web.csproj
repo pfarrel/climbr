@@ -164,7 +164,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ClimbController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -319,6 +319,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Route.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Location.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Grade.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ClimbType.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

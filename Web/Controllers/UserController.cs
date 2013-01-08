@@ -15,8 +15,17 @@ namespace Web.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class UserController : Controller
     {
+        public ActionResult Index()
+        {
+            using (var db = new ClimbrContext())
+            {
+                var users = db.Users.ToList();
+                return View(users);
+            }
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]

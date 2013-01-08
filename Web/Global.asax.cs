@@ -17,7 +17,7 @@ namespace Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            //Database.SetInitializer(new MyDbInitialiser());
+            Database.SetInitializer(new Migrations.MyDbInitialiser());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

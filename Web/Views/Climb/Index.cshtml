@@ -12,6 +12,9 @@
 <table>
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Climber)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Route.Location)
         </th>
         <th>
@@ -35,10 +38,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Route.Location.Name)
+            @Html.DisplayFor(modelItem => item.Climber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Route.Name)
+            @Html.DisplayFor(modelItem => item.Route.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Route)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ClimbType.Name)
@@ -47,13 +53,13 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <th>
-            @Html.DisplayNameFor(model => model.Attempts)
+            @Html.DisplayFor(modelItem => item.Attempts)
         </th>
         <td>
             @Html.DisplayFor(modelItem => item.Succeeded)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.Id })
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
         </td>
     </tr>
 }

@@ -48,7 +48,7 @@ namespace Web.Migrations
                 new Grade { Name = "5c" });
 
             context.ClimbTypes.AddOrUpdate(g => g.Name,
-                new ClimbType { Name = "Top-Rope" },
+                new ClimbType { Name = "Top Rope" },
                 new ClimbType { Name = "Lead" },
                 new ClimbType { Name = "Bouldering" });
 

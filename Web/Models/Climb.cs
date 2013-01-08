@@ -19,10 +19,12 @@ namespace Web.Models
         public DateTime Date { get; set; }
 
         [Required]
+        [Display(Name = "Route")]
         public int RouteId { get; set; }
         public virtual Route Route { get; set; }
 
         [Required]
+        [Display(Name = "Climb Type")]
         public int ClimbTypeId { get; set; }
         public virtual ClimbType ClimbType { get; set; }
 

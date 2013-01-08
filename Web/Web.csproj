@@ -14,7 +14,7 @@
     <RootNamespace>Web</RootNamespace>
     <AssemblyName>Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
+    <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
@@ -314,6 +314,11 @@
     <Content Include="Views\Climb\Create.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Grade\Details.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\User.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Climb.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Route.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Location.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Grade.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

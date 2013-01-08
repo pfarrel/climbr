@@ -23,11 +23,14 @@ namespace Web.Models
         public virtual Grade Grade { get; set; }
 
         [Required]
+        [Display(Name = "Location")]
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
 
         [Required]
+        [Display(Name = "Default Climb Type")]
         public int DefaultClimbTypeId { get; set; }
+        [Display(Name = "Default Climb Type")]
         public virtual ClimbType DefaultClimbType { get; set; }
 
         [Required]

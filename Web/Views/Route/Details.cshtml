@@ -29,6 +29,17 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.DefaultClimbType.Name)
     </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Climbs)
+    </div>
+    @foreach (var item in Model.Climbs)
+    {
+        <div class="display-field">
+            @Html.DisplayFor(modelItem => item)
+        </div>
+    }
+
 </fieldset>
 <p>
     @Html.ActionLink("Back to List", "Index")

@@ -1,4 +1,4 @@
-﻿@model Web.Models.User
+﻿@model Web.Models.Climb
 
-@Html.ActionLink(Model.UserName, "Details", "User", new { id = Model.Id }, null)
+@Html.ActionLink(Model.Route.Location.Name + " - " + Model.Route.Name + " - " + Model.Date, "Details", "Climb", new { id = Model.Id }, null)
 

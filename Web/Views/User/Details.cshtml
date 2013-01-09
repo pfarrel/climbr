@@ -1,30 +1,31 @@
-﻿@model Web.Models.Grade
+﻿@model Web.Models.User
 
 @{
-    ViewBag.Title = "Grade Details";
+    ViewBag.Title = "Climber Details";
 }
 
 <h2>@ViewBag.Title</h2>
 
 <fieldset>
-    <legend>Grade</legend>
+    <legend>Route</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+         @Html.DisplayNameFor(model => model.UserName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.UserName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Routes)
+         @Html.DisplayNameFor(model => model.Climbs)
     </div>
-    @foreach (var item in Model.Routes)
+    @foreach (var item in Model.Climbs)
     {
         <div class="display-field">
             @Html.DisplayFor(modelItem => item)
         </div>
     }
+
 </fieldset>
 <p>
     @Html.ActionLink("Back to List", "Index")

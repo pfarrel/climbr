@@ -15,13 +15,22 @@ namespace Web.Controllers
     [Authorize]
     public class UserController : Controller
     {
+        private ClimbrContext db = new ClimbrContext();
+
         public ActionResult Index()
         {
-            using (var db = new ClimbrContext())
+            var users = db.Users.ToList();
+            return View(users);
+        }
+
+        public ActionResult Details(int id)
+        {
+            User user = db.Users.Find(id);
+            if (user == null)
             {
-                var users = db.Users.ToList();
-                return View(users);
+                return HttpNotFound();
             }
+            return View(user);
         }
 
         //

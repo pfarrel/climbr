@@ -11,6 +11,9 @@
         <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
+        <th>
+            # Climbs
+        </th>
         <th></th>
     </tr>
 
@@ -18,6 +21,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Climbs.Count)
         </td>
     </tr>
 }

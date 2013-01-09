@@ -37,5 +37,7 @@ namespace Web.Models
         [Display(Name = "Added By")]
         public int AddedById { get; set; }
         public virtual User AddedBy { get; set; }
+
+        public virtual List<Climb> Climbs { get; set; }
     }
 }

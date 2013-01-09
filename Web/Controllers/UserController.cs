@@ -8,13 +8,11 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using Web.Filters;
 using Web.Models;
 
 namespace Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class UserController : Controller
     {
         public ActionResult Index()

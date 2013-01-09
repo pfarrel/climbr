@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Web.Models;
+using WebMatrix.WebData;
 
 namespace Web
 {
@@ -17,7 +18,21 @@ namespace Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            Database.SetInitializer(new Migrations.MyDbInitialiser());
+            Database.SetInitializer<ClimbrContext>(new Migrations.MyDbInitialiser());
+            using (var context = new ClimbrContext())
+            {
+                context.Database.Initialize(false);
+            }
+
+            if (!WebSecurity.Initialized)
+            {
+                WebSecurity.InitializeDatabaseConnection(
+                    "DefaultConnection",
+                    "Users",
+                    "Id",
+                    "UserName",
+                    autoCreateTables: false);
+            }
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

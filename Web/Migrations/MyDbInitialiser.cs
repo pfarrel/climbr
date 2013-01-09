@@ -8,12 +8,10 @@ using Web.Models;
 
 namespace Web.Migrations
 {
-    public class MyDbInitialiser : DropCreateDatabaseAlways<ClimbrContext>
+    public class MyDbInitialiser : DropCreateDatabaseIfModelChanges<ClimbrContext>
     {
         protected override void Seed(Web.Models.ClimbrContext context)
         {
-            base.Seed(context);
-
             if (!WebSecurity.Initialized)
             {
                 WebSecurity.InitializeDatabaseConnection(
@@ -24,14 +22,8 @@ namespace Web.Migrations
                     autoCreateTables: true);
             }
 
-            if (!Roles.RoleExists("Administrator"))
-                Roles.CreateRole("Administrator");
-
             if (!WebSecurity.UserExists("admin"))
                 WebSecurity.CreateUserAndAccount("admin", "password");
-
-            if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
-                Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
 
             context.Grades.AddOrUpdate(g => g.Name,
                 new Grade { Name = "1" },
@@ -49,8 +41,6 @@ namespace Web.Migrations
                 new ClimbType { Name = "Top Rope" },
                 new ClimbType { Name = "Lead" },
                 new ClimbType { Name = "Bouldering" });
-
-            context.SaveChanges();
         }
     }
 }

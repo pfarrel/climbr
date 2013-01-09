@@ -32,7 +32,7 @@
             @Html.LabelFor(model => model.Attempts)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Attempts)
+            @Html.DropDownListFor(model => model.Attempts, new SelectList(Enumerable.Range(1,10)))
             @Html.ValidationMessageFor(model => model.Attempts)
         </div>
 

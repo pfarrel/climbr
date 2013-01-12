@@ -22,6 +22,7 @@ namespace Web.Models
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
+        public DbSet<Color> Colors { get; set; }
         public DbSet<Climb> Climbs { get; set; }
         public DbSet<ClimbType> ClimbTypes { get; set; }
         public DbSet<Grade> Grades { get; set; }

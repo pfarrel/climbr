@@ -7,15 +7,15 @@ using System.Web;
 
 namespace Web.Models
 {
-    [Table("Grades")]
-    public class Grade
+    public class Color
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
+
+        [Required]
+        public string Hex { get; set; }
 
         public virtual List<Route> Routes { get; set; }
     }

@@ -13,6 +13,14 @@
         <legend>Route</legend>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.LocationId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.LocationId)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
@@ -37,11 +45,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.LocationId)
+        @Html.LabelFor(model => model.ColorId)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name"))
-            @Html.ValidationMessageFor(model => model.LocationId)
+            @Html.DropDownListFor(model => model.ColorId, new SelectList(ViewBag.Colors, "Id", "Name"))
+            @Html.ValidationMessageFor(model => model.ColorId)
         </div>
 
         <p>

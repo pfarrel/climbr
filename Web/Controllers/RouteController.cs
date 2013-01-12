@@ -37,6 +37,7 @@ namespace Web.Controllers
         public ActionResult Create()
         {
             ViewBag.ClimbTypes = db.ClimbTypes.ToList();
+            ViewBag.Colors = db.Colors.ToList();
             ViewBag.Grades = db.Grades.ToList();
             ViewBag.Locations = db.Locations.ToList();
 
@@ -57,6 +58,7 @@ namespace Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Colors = db.Colors.ToList();
             ViewBag.ClimbTypes = db.ClimbTypes.ToList();
             ViewBag.Grades = db.Grades.ToList();
             ViewBag.Locations = db.Locations.ToList();

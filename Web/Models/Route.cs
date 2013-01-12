@@ -33,6 +33,9 @@ namespace Web.Models
         [Display(Name = "Default Climb Type")]
         public virtual ClimbType DefaultClimbType { get; set; }
 
+        public int ColorId { get; set; }
+        public virtual Color Color { get; set; }
+
         [Required]
         [Display(Name = "Added By")]
         public int AddedById { get; set; }

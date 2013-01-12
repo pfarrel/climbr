@@ -31,9 +31,17 @@ namespace Web.Migrations
                 new ClimbType { Name = "Bouldering" });
 
             context.Colors.AddOrUpdate(c => c.Name,
-                new Color { Name = "Red", Hex = "FF0000" },
+                new Color { Name = "Black", Hex = "000000" },
+                new Color { Name = "Blue", Hex = "0000FF" },
+                new Color { Name = "Flo Yellow", Hex = "#F3F781" },
                 new Color { Name = "Green", Hex = "00FF00" },
-                new Color { Name = "Blue", Hex = "0000FF" });
+                new Color { Name = "Orange", Hex = "FFA500" },
+                new Color { Name = "Pink", Hex = "FF1493" },
+                new Color { Name = "Purple", Hex = "800080" },
+                new Color { Name = "Red", Hex = "FF0000" },
+                new Color { Name = "Yellow", Hex = "FFFF00" },
+                new Color { Name = "White", Hex = "FFFFFF" });
+                
 
             context.Grades.AddOrUpdate(g => g.Name,
                new Grade { Name = "1" },
@@ -46,6 +54,9 @@ namespace Web.Migrations
                new Grade { Name = "6a" },
                new Grade { Name = "6b" },
                new Grade { Name = "5c" });
+
+            context.Locations.AddOrUpdate(l => l.Name,
+                new Location { Name = "Awesome Walls Dublin", AddedBy = context.Users.Single(u => u.UserName == "admin") });
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Web.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Grade")]
         public int GradeId { get; set; }
         public virtual Grade Grade { get; set; }
 
@@ -33,6 +34,7 @@ namespace Web.Models
         [Display(Name = "Default Climb Type")]
         public virtual ClimbType DefaultClimbType { get; set; }
 
+        [Display(Name = "Color")]
         public int ColorId { get; set; }
         public virtual Color Color { get; set; }
 

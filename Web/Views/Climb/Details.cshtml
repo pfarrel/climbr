@@ -8,40 +8,45 @@
 
 <fieldset>
     <legend>Climb</legend>
-    
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Route.Location)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Route.Location)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Route.Location)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Route.Location)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Route)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Route)
+        </div>
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Route)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Date)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Date)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Route)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Duration)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Duration)
+        </div>
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Date)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Date)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Duration)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Duration)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Succeeded)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Succeeded)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Succeeded)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Succeeded)
+        </div>
     </div>
 </fieldset>
 <p>

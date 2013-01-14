@@ -8,23 +8,24 @@
 
 <fieldset>
     <legend>Location</legend>
-
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.AddedBy)
+        </div>
+    </div>
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Routes)
+        @Html.DisplayNameFor(model => model.Routes)
     </div>
     @foreach (var item in Model.Routes)
     {

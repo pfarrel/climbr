@@ -401,9 +401,9 @@ fieldset {
     padding: 0;
 }
 
-    fieldset legend {
-        display: none;
-    }
+fieldset legend {
+    display: none;
+}
 
     fieldset ol {
         padding: 0;
@@ -752,4 +752,22 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+}
+
+
+/* climbr styles */
+
+.display-row, .editor-row {
+
+}
+
+ .display-label, .editor-label {
+        margin: 1em 0 0 0;
+        display:inline-block;
+        width: 25%;
+}
+
+.display-field, .editor-field {
+        margin: 0.5em 0 0 0;
+        display:inline-block;
 }

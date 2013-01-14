@@ -8,28 +8,30 @@
 
 <fieldset>
     <legend>Route</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Name)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Grade)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Grade.Name)
+        </div>
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Grade)
+    <div class="display-row">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.DefaultClimbType)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DefaultClimbType.Name)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Grade.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DefaultClimbType)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DefaultClimbType.Name)
-    </div>
-
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Climbs)
     </div>

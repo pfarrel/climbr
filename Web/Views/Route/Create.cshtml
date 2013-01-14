@@ -6,52 +6,57 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Route</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LocationId)
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LocationId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name", ))
+                @Html.ValidationMessageFor(model => model.LocationId)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name"))
-            @Html.ValidationMessageFor(model => model.LocationId)
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DefaultClimbTypeId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.DefaultClimbTypeId, new SelectList(ViewBag.ClimbTypes, "Id", "Name"))
+                @Html.ValidationMessageFor(model => model.DefaultClimbTypeId)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.GradeId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.GradeId, new SelectList(ViewBag.Grades, "Id", "Name"))
+                @Html.ValidationMessageFor(model => model.GradeId)
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DefaultClimbTypeId)
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ColorId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.ColorId, new SelectList(ViewBag.Colors, "Id", "Name"))
+                @Html.ValidationMessageFor(model => model.ColorId)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.DefaultClimbTypeId, new SelectList(ViewBag.ClimbTypes, "Id", "Name"))
-            @Html.ValidationMessageFor(model => model.DefaultClimbTypeId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GradeId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.GradeId, new SelectList(ViewBag.Grades, "Id", "Name"))
-            @Html.ValidationMessageFor(model => model.GradeId)
-        </div>
-
-        <div class="editor-label">
-        @Html.LabelFor(model => model.ColorId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.ColorId, new SelectList(ViewBag.Colors, "Id", "Name"))
-            @Html.ValidationMessageFor(model => model.ColorId)
-        </div>
-
         <p>
             <input type="submit" value="Create" />
         </p>

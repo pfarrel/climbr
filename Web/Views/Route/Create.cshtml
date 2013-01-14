@@ -17,7 +17,7 @@
                 @Html.LabelFor(model => model.LocationId)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name", ))
+                @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name", ViewBag.LastLocation))
                 @Html.ValidationMessageFor(model => model.LocationId)
             </div>
         </div>

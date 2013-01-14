@@ -182,6 +182,7 @@
     <Compile Include="Models\Climb.cs" />
     <Compile Include="Models\ClimbType.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\CreateClimbViewModel.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Route.cs" />

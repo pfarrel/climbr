@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -16,6 +17,7 @@ namespace Web.Models
         public int Id { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Required]
@@ -35,10 +37,13 @@ namespace Web.Models
         [Range(1,100)]
         public int Attempts { get; set; }
 
-        public TimeSpan Duration { get; set; }
-
         [Required]
         public int ClimberId { get; set; }
         public virtual User Climber { get; set; }
+
+        public Climb()
+        {
+            Date = DateTime.Now;
+        }
     }
 }

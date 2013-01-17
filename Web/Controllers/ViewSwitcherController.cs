@@ -3,6 +3,7 @@ using System.Web.WebPages;
 
 namespace Web.Controllers
 {
+    [AllowAnonymous]
     public class ViewSwitcherController : Controller
     {
         public RedirectResult SwitchView(bool mobile, string returnUrl) {

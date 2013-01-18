@@ -177,15 +177,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MyDbInitialiser.cs" />
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\ClimbrContext.cs" />
-    <Compile Include="Models\Climb.cs" />
-    <Compile Include="Models\ClimbType.cs" />
-    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\CreateClimbViewModel.cs" />
-    <Compile Include="Models\Grade.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -353,6 +345,12 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{e86a1d95-d984-4ad5-8388-d651e9401fbb}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

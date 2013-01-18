@@ -4,13 +4,14 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Security;
 using WebMatrix.WebData;
-using Web.Models;
+using Domain;
+
 
 namespace Web.Migrations
 {
     public class MyDbInitialiser : DropCreateDatabaseIfModelChanges<ClimbrContext>
     {
-        protected override void Seed(Web.Models.ClimbrContext context)
+        protected override void Seed(ClimbrContext context)
         {
             if (!WebSecurity.Initialized)
             {

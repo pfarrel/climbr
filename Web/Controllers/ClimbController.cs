@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web.Models;
+using Domain;
 
 namespace Web.Controllers
 {

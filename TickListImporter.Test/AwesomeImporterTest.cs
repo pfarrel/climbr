@@ -26,7 +26,7 @@ namespace TickListImporter.Test
                     route.DefaultClimbTypeId = lead;
                     context.Routes.Add(route);
                 }
-                var a = 1;
+
                 context.SaveChanges();
             }
         }

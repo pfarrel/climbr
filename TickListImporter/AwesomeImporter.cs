@@ -15,7 +15,7 @@ namespace TickListImporter
         {
             var excel = new ExcelQueryFactory(filename);
             var sheetRoutes = excel.Worksheet<SheetRoute>()
-                .Where(r => r.Grade != "#REF!")
+                .Where(r => r.Grade != "#REF!" && r.Grade != null)
                 .ToList();
 
             for (int i = 1; i < sheetRoutes.Count; i++)

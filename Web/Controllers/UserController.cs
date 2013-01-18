@@ -14,19 +14,17 @@ using Domain;
 namespace Web.Controllers
 {
     [Authorize]
-    public class UserController : Controller
+    public class UserController : ClimbrController
     {
-        private ClimbrContext db = new ClimbrContext();
-
         public ActionResult Index()
         {
-            var users = db.Users.ToList();
+            var users = Context.Users.ToList();
             return View(users);
         }
 
         public ActionResult Details(int id)
         {
-            User user = db.Users.Find(id);
+            User user = Context.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -34,8 +32,6 @@ namespace Web.Controllers
             return View(user);
         }
 
-        //
-        // GET: /User/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -43,8 +39,6 @@ namespace Web.Controllers
             return View();
         }
 
-        //
-        // POST: /User/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -60,8 +54,6 @@ namespace Web.Controllers
             return View(model);
         }
 
-        //
-        // POST: /User/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -71,16 +63,12 @@ namespace Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /User/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
-        //
-        // POST: /User/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -105,8 +93,6 @@ namespace Web.Controllers
             return View(model);
         }
 
-        //
-        // POST: /User/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Disassociate(string provider, string providerUserId)
@@ -133,8 +119,6 @@ namespace Web.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
-        // GET: /User/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -147,8 +131,6 @@ namespace Web.Controllers
             return View();
         }
 
-        //
-        // POST: /User/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
@@ -209,8 +191,6 @@ namespace Web.Controllers
             return View(model);
         }
 
-        //
-        // POST: /User/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -219,8 +199,6 @@ namespace Web.Controllers
             return new ExternalLoginResult(provider, Url.Action("ExternalLoginCallback", new { ReturnUrl = returnUrl }));
         }
 
-        //
-        // GET: /User/ExternalLoginCallback
         [AllowAnonymous]
         public ActionResult ExternalLoginCallback(string returnUrl)
         {
@@ -251,8 +229,6 @@ namespace Web.Controllers
             }
         }
 
-        //
-        // POST: /User/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -269,25 +245,22 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (ClimbrContext db = new ClimbrContext())
+                User user = Context.Users.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+                // Check if user already exists
+                if (user == null)
                 {
-                    User user = db.Users.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
-                    // Check if user already exists
-                    if (user == null)
-                    {
-                        // Insert name into the profile table
-                        db.Users.Add(new User { UserName = model.UserName });
-                        db.SaveChanges();
+                    // Insert name into the profile table
+                    Context.Users.Add(new User { UserName = model.UserName });
+                    Context.SaveChanges();
 
-                        OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
-                        OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
+                    OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
+                    OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
 
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
-                    }
+                    return RedirectToLocal(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
                 }
             }
 
@@ -296,8 +269,6 @@ namespace Web.Controllers
             return View(model);
         }
 
-        //
-        // GET: /User/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {

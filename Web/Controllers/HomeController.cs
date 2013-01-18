@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace Web.Controllers
 {
     [AllowAnonymous]
-    public class HomeController : Controller
+    public class HomeController : ClimbrController
     {
         public ActionResult Index()
         {

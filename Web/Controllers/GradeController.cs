@@ -10,22 +10,20 @@ using Domain;
 
 namespace Web.Controllers
 {
-    public class GradeController : Controller
+    public class GradeController : ClimbrController
     {
-        private ClimbrContext db = new ClimbrContext();
-
         //
         // GET: /Grade/
         public ActionResult Index()
         {
-            return View(db.Grades.ToList());
+            return View(Context.Grades.ToList());
         }
 
         //
         // GET: /Grade/Details/5
         public ActionResult Details(int id = 0)
         {
-            Grade grade = db.Grades.Find(id);
+            Grade grade = Context.Grades.Find(id);
             if (grade == null)
             {
                 return HttpNotFound();
@@ -47,18 +45,12 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Grades.Add(grade);
-                db.SaveChanges();
+                Context.Grades.Add(grade);
+                Context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(grade);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

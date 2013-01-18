@@ -10,22 +10,20 @@ using Domain;
 
 namespace Web.Controllers
 {
-    public class ClimbController : Controller
+    public class ClimbController : ClimbrController
     {
-        private ClimbrContext db = new ClimbrContext();
-
         //
         // GET: /Climb/
         public ActionResult Index()
         {
-            return View(db.Climbs.ToList());
+            return View(Context.Climbs.ToList());
         }
 
         //
         // GET: /Climb/Details/5
         public ActionResult Details(int id = 0)
         {
-            Climb climb = db.Climbs.Find(id);
+            Climb climb = Context.Climbs.Find(id);
             if (climb == null)
             {
                 return HttpNotFound();
@@ -39,8 +37,8 @@ namespace Web.Controllers
         {
             var viewModel = new CreateClimbViewModel();
 
-            var userId = db.Users.Single(u => u.UserName == User.Identity.Name).Id;
-            var lastLocation = db.Climbs
+            var userId = Context.Users.Single(u => u.UserName == User.Identity.Name).Id;
+            var lastLocation = Context.Climbs
                 .Where(c => c.ClimberId == userId)
                 .OrderByDescending(c => c.Date)
                 .Select(c => c.Route.LocationId)
@@ -48,11 +46,11 @@ namespace Web.Controllers
 
             viewModel.LocationId = lastLocation;
 
-            ViewBag.Locations = db.Locations.ToList();
+            ViewBag.Locations = Context.Locations.ToList();
             ViewBag.LastLocation = lastLocation;
 
-            ViewBag.Routes = db.Routes.ToList();
-            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
+            ViewBag.Routes = Context.Routes.ToList();
+            ViewBag.ClimbTypes = Context.ClimbTypes.ToList();
 
             return View(viewModel);
         }
@@ -65,21 +63,15 @@ namespace Web.Controllers
             Climb climb = new Climb();
             if (TryUpdateModel(climb))
             {
-                climb.Climber = db.Users.Single(u => u.UserName == User.Identity.Name);
+                climb.Climber = Context.Users.Single(u => u.UserName == User.Identity.Name);
                 climb.Date = DateTime.Now;
 
-                db.Climbs.Add(climb);
-                db.SaveChanges();
+                Context.Climbs.Add(climb);
+                Context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(climb);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

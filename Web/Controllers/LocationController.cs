@@ -10,24 +10,16 @@ using Domain;
 
 namespace Web.Controllers
 {
-    public class LocationController : Controller
+    public class LocationController : ClimbrController
     {
-        private ClimbrContext db = new ClimbrContext();
-
-        //
-        // GET: /Location/
-
         public ActionResult Index()
         {
-            return View(db.Locations.ToList());
+            return View(Context.Locations.ToList());
         }
-
-        //
-        // GET: /Location/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Location location = db.Locations.Find(id);
+            Location location = Context.Locations.Find(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -35,16 +27,10 @@ namespace Web.Controllers
             return View(location);
         }
 
-        //
-        // GET: /Location/Create
-
         public ActionResult Create()
         {
             return View();
         }
-
-        //
-        // POST: /Location/Create
 
         [HttpPost]
         public ActionResult Create(Location createlocation)
@@ -52,19 +38,13 @@ namespace Web.Controllers
             Location location = new Location();
             if (TryUpdateModel(location))
             {
-                location.AddedBy = db.Users.Single(u => u.UserName == User.Identity.Name);
-                db.Locations.Add(location);
-                db.SaveChanges();
+                location.AddedBy = Context.Users.Single(u => u.UserName == User.Identity.Name);
+                Context.Locations.Add(location);
+                Context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(createlocation);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

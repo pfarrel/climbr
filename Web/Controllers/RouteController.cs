@@ -10,22 +10,16 @@ using Domain;
 
 namespace Web.Controllers
 {
-    public class RouteController : Controller
+    public class RouteController : ClimbrController
     {
-        private ClimbrContext db = new ClimbrContext();
-
-        //
-        // GET: /Route/
         public ActionResult Index()
         {
-            return View(db.Routes.ToList());
+            return View(Context.Routes.ToList());
         }
 
-        //
-        // GET: /Route/Details/5
         public ActionResult Details(int id = 0)
         {
-            Route route = db.Routes.Find(id);
+            Route route = Context.Routes.Find(id);
             if (route == null)
             {
                 return HttpNotFound();
@@ -33,44 +27,34 @@ namespace Web.Controllers
             return View(route);
         }
 
-        //
-        // GET: /Route/Create
         public ActionResult Create()
         {
-            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
-            ViewBag.Colors = db.Colors.ToList();
-            ViewBag.Grades = db.Grades.ToList();
-            ViewBag.Locations = db.Locations.ToList();
+            ViewBag.ClimbTypes = Context.ClimbTypes.ToList();
+            ViewBag.Colors = Context.Colors.ToList();
+            ViewBag.Grades = Context.Grades.ToList();
+            ViewBag.Locations = Context.Locations.ToList();
 
             return View();
         }
 
-        //
-        // POST: /Route/Create
         [HttpPost]
         public ActionResult Create(Route createRoute)
         {
             Route route = new Route();
             if (TryUpdateModel(route))
             {
-                route.AddedBy = db.Users.Single(u => u.UserName == User.Identity.Name);
-                db.Routes.Add(route);
-                db.SaveChanges();
+                route.AddedBy = Context.Users.Single(u => u.UserName == User.Identity.Name);
+                Context.Routes.Add(route);
+                Context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Colors = db.Colors.ToList();
-            ViewBag.ClimbTypes = db.ClimbTypes.ToList();
-            ViewBag.Grades = db.Grades.ToList();
-            ViewBag.Locations = db.Locations.ToList();
+            ViewBag.Colors = Context.Colors.ToList();
+            ViewBag.ClimbTypes = Context.ClimbTypes.ToList();
+            ViewBag.Grades = Context.Grades.ToList();
+            ViewBag.Locations = Context.Locations.ToList();
 
             return View(route);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

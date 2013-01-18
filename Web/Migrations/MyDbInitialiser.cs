@@ -6,7 +6,6 @@ using System.Web.Security;
 using WebMatrix.WebData;
 using Domain;
 
-
 namespace Web.Migrations
 {
     public class MyDbInitialiser : DropCreateDatabaseIfModelChanges<ClimbrContext>
@@ -50,13 +49,25 @@ namespace Web.Migrations
             context.Grades.AddOrUpdate(
                 g => g.Id,
                 new Grade { Id = 1, Name = "3" },
-                new Grade { Id = 2, Name = "4" },
-                new Grade { Id = 3, Name = "4+" },
-                new Grade { Id = 4, Name = "5" },
-                new Grade { Id = 5, Name = "5+" },
-                new Grade { Id = 6, Name = "6a" },
-                new Grade { Id = 7, Name = "6b" },
-                new Grade { Id = 8, Name = "5c" });
+                new Grade { Id = 2, Name = "3+" },
+                new Grade { Id = 3, Name = "4" },
+                new Grade { Id = 4, Name = "4+" },
+                new Grade { Id = 5, Name = "5" },
+                new Grade { Id = 6, Name = "5+" },
+                new Grade { Id = 7, Name = "6a" },
+                new Grade { Id = 8, Name = "6a+" },
+                new Grade { Id = 9, Name = "6b" },
+                new Grade { Id = 10, Name = "6b+" },
+                new Grade { Id = 11, Name = "6c" },
+                new Grade { Id = 12, Name = "6c+" },
+                new Grade { Id = 13, Name = "7a" },
+                new Grade { Id = 14, Name = "7a+" },
+                new Grade { Id = 15, Name = "7b" },
+                new Grade { Id = 16, Name = "7b+" },
+                new Grade { Id = 17, Name = "7c" },
+                new Grade { Id = 18, Name = "7c+" },
+                new Grade { Id = 19, Name = "8a" },
+                new Grade { Id = 20, Name = "8a+" });
 
             context.Locations.AddOrUpdate(
                 l => l.Id,

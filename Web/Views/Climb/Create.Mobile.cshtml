@@ -1,0 +1,89 @@
+﻿@using Web.Models
+@model Web.Models.CreateClimbViewModel
+
+@{
+    ViewBag.Title = "Create Climb";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Climb</legend>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LocationId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "Id", "Name"))
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RouteId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.RouteId, new SelectList(ViewBag.Routes, "Id", "Name"))
+                @Html.ValidationMessageFor(model => model.RouteId)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClimbTypeId)
+            </div>
+            <div class="editor-field">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend></legend>
+                    @foreach (var climbType in (IEnumerable<ClimbType>)ViewBag.ClimbTypes)
+                    {
+                        <input type="radio" name="ClimbTypeId" id="ClimbTypeId-@climbType.Id" value="@climbType.Id" />
+                        <label for="ClimbTypeId-@climbType.Id">@climbType.Name</label>
+                    }
+                </fieldset>
+                
+                @Html.ValidationMessageFor(model => model.ClimbTypeId)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Attempts)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Attempts, new SelectList(Enumerable.Range(1, 10)))
+                @Html.ValidationMessageFor(model => model.Attempts)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Succeeded)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Succeeded)
+                @Html.ValidationMessageFor(model => model.Succeeded)
+            </div>
+        </div>
+        <div class="editor-row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Date)
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

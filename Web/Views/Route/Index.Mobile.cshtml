@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Web.Models.Route>
+
+@{
+    ViewBag.Title = "Routes";
+}
+
+<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filter routes...">
+    @foreach (var route in Model)
+    {
+        <li data-filtertext="@route.Color.Name @route.Name @route.Grade.Name">
+            <a href="@Url.Action("Details", new { id = route.Id })"> 
+                <img src="~/Content/images/spacer.gif" style="background-color: @route.Color.Name" class="ui-li-icon" alt="@route.Color.Name"/>
+                @route.Name
+                <span class="ui-li-count">@route.Grade.Name</span>
+            </a>
+        </li>
+    }
+</ul>

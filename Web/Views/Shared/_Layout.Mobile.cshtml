@@ -17,10 +17,6 @@
     <div data-role="page" data-theme="a">
         @Html.Partial("_ViewSwitcher")
 
-        <div data-role="header">
-            <h1>@ViewBag.Title</h1>
-        </div>
-
         <div data-role="navbar">
             <ul>
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -29,6 +25,10 @@
                 <li>@Html.ActionLink("Climbs", "Index", "Climb")</li>
                 <li>@Html.ActionLink("Climbers", "Index", "User")</li>
             </ul>
+        </div>
+
+        <div data-role="header">
+            <h1>@ViewBag.Title</h1>
         </div>
 
         <div data-role="content">

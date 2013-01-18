@@ -9,7 +9,7 @@
     {
         <li data-filtertext="@route.Color.Name @route.Name @route.Grade.Name">
             <a href="@Url.Action("Details", new { id = route.Id })"> 
-                <img src="~/Content/images/spacer.gif" style="background-color: @route.Color.Name" class="ui-li-icon" alt="@route.Color.Name"/>
+                <img src="~/Content/images/spacer.gif" style="background-color: #@route.Color.Hex" class="ui-li-icon" alt="@route.Color.Name"/>
                 @route.Name
                 <span class="ui-li-count">@route.Grade.Name</span>
             </a>

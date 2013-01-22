@@ -54,6 +54,35 @@ namespace Web.Controllers
             return View(vm);
         }
 
+        public ActionResult SuggestedRoutes(int id)
+        {
+            User user = Context.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var bestClimb = user.Climbs
+                .Where(c => c.Succeeded)
+                .OrderBy(c => c.Route.Grade.Id)
+                .FirstOrDefault();
+            int bestClimbGradeId = (bestClimb != null) ? bestClimb.Route.GradeId : default(int);
+
+            // "Pointer" math on the grade Ids! Here be dragons.
+            var routes = Context.Routes.Include("Grade").Include("Color")
+                .OrderBy(r => Math.Abs(r.GradeId - bestClimbGradeId))
+                .Take(5)
+                .ToList();
+
+            var vm = new SuggestedRoutesViewModel
+                {
+                    BestClimb = bestClimb,
+                    SuggestedRoutes = routes
+                };
+
+            return View(vm);
+        }
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {

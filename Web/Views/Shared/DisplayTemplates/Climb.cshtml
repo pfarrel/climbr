@@ -1,3 +1,6 @@
 ﻿@model Domain.Climb
 
-@Html.ActionLink(Model.Route.Location.Name + " - " + Model.Route.Name + " - " + Model.Date, "Details", "Climb", new { id = Model.Id }, null)
+@if (Model != null)
+{
+    @Html.ActionLink(Model.Route.Location.Name + " - " + Model.Route.Name + " - " + Model.Date, "Details", "Climb", new {id = Model.Id}, null)
+}

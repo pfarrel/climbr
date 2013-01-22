@@ -178,6 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MyDbInitialiser.cs" />
+    <Compile Include="Models\SuggestedRoutesViewModel.cs" />
     <Compile Include="Models\CreateClimbViewModel.cs" />
     <Compile Include="Models\UserDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -339,6 +340,7 @@
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Route\Index.Mobile.cshtml" />
     <Content Include="Views\Climb\Create.Mobile.cshtml" />
+    <Content Include="Views\User\SuggestedRoutes.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

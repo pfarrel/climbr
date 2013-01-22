@@ -1,4 +1,4 @@
-﻿@model Domain.User
+﻿@model Web.Models.UserDetailsViewModel
 
 @{
     ViewBag.Title = "Climber Details";
@@ -7,23 +7,26 @@
 <h2>@ViewBag.Title</h2>
 
 <fieldset>
-    <legend>Route</legend>
+    <legend>Climber</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
+         @Html.LabelFor(model => model.User.UserName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.UserName)
+        @Html.DisplayFor(model => model.User.UserName)
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Climbs)
-    </div>
-    @foreach (var item in Model.Climbs)
+    
+    @if (Model.LastSessionClimbs != null)
     {
-        <div class="display-field">
-            @Html.DisplayFor(modelItem => item)
+        <div class="display-label">
+            @Html.LabelFor(model => model.LastSessionClimbs)
         </div>
+        foreach (var item in Model.LastSessionClimbs)
+        {
+            <div class="display-field">
+                @Html.DisplayFor(modelItem => item)
+            </div>
+        }
     }
 
 </fieldset>

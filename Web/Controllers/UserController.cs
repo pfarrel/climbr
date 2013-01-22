@@ -29,7 +29,29 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+
+            var lastClimb = Context.Climbs
+                .Where(c => c.ClimberId == user.Id)
+                .OrderByDescending(c => c.Date)
+                .FirstOrDefault();
+
+            var vm = new UserDetailsViewModel
+            {
+                User = user,
+                LastSessionClimbs = (lastClimb != null) 
+                    ? Context.Climbs
+                        .Where(c => c.ClimberId == user.Id)
+                        .Where(c => c.Date == lastClimb.Date)
+                        .ToList()
+                    : null,
+                Friends = Context.Users.Take(3).ToList(),
+                HardestClimb = Context.Climbs
+                    .Where(c => c.ClimberId == user.Id)
+                    .OrderByDescending(c => c.Route.GradeId)
+                    .FirstOrDefault()
+            };
+
+            return View(vm);
         }
 
         [AllowAnonymous]

@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Migrations\MyDbInitialiser.cs" />
     <Compile Include="Models\CreateClimbViewModel.cs" />
+    <Compile Include="Models\UserDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

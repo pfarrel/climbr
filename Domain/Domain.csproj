@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountModels.cs" />
     <Compile Include="Climb.cs" />
     <Compile Include="ClimbrContext.cs" />
     <Compile Include="ClimbType.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Grade.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

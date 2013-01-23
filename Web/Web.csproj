@@ -180,6 +180,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MyDbInitialiser.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\SuggestedRoutesViewModel.cs" />
     <Compile Include="Models\CreateClimbViewModel.cs" />
     <Compile Include="Models\UserDetailsViewModel.cs" />

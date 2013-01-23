@@ -344,6 +344,7 @@
     <Content Include="Views\Route\Index.Mobile.cshtml" />
     <Content Include="Views\Climb\Create.Mobile.cshtml" />
     <Content Include="Views\User\SuggestedRoutes.Mobile.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\RouteList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

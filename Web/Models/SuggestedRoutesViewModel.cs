@@ -12,7 +12,11 @@ namespace Web.Models
 {
     public class SuggestedRoutesViewModel
     {
+        [Display(Name = "Best Climb")]
         public Climb BestClimb { get; set; }
+        
+        [Display(Name = "Suggested Routes")]
+        [UIHint("RouteList")]
         public List<Route> SuggestedRoutes { get; set; }
     }
 }

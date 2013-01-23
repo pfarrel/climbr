@@ -7,26 +7,27 @@
 <fieldset>
     <legend></legend>
     <div>
-        <div class="display-label">
-            @Html.DisplayNameFor(model => model.BestClimb)
-        </div>
-        <div class="display-field">
-            @Html.DisplayFor(model => model.BestClimb)
-        </div>
+        @if (Model.BestClimb != null)
+        {
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.BestClimb)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.BestClimb)
+            </div>
+            <p>Here are some climbs of a similar difficulty level</p>
+        }
+        else
+        {
+            <p>We don't have any climbs on file for you, here are some easy ones</p>
+        }
     </div>
-    <br/><br/>
+
     <div>
-        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filter routes...">
-            @foreach (var route in Model.SuggestedRoutes)
-            {
-                <li data-filtertext="@route.Color.Name @route.Name @route.Grade.Name">
-                    <a href="@Url.Action("Details", new { id = route.Id })"> 
-                        <img src="~/Content/images/spacer.gif" style="background-color: #@route.Color.Hex" class="ui-li-icon" alt="@route.Color.Name"/>
-                        @route.Name
-                        <span class="ui-li-count">@route.Grade.Name</span>
-                    </a>
-                </li>
-            }
-        </ul>
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.SuggestedRoutes)
+        </div>
+        <br/><br/>
+        @Html.DisplayFor(model => model.SuggestedRoutes)
     </div>
 </fieldset>

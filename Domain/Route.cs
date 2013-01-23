@@ -45,4 +45,20 @@ namespace Domain
 
         public virtual List<Climb> Climbs { get; set; }
     }
+
+    public static class RouteObjectSetExtensions
+    {
+        // "Pointer" math on the grade Ids! Here be dragons.
+        public static IOrderedQueryable<Route> OrderByClosestToGrade(this IQueryable<Route> routes, Grade grade)
+        {
+            var orderedRoutes = routes.OrderBy(r => Math.Abs(r.GradeId - grade.Id));
+            return orderedRoutes;
+        }
+
+        public static IOrderedQueryable<Route> OrderByDifficulty(this IQueryable<Route> routes)
+        {
+            var orderedRoutes = routes.OrderBy(r => r.GradeId);
+            return orderedRoutes;
+        }
+    }
 }

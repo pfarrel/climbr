@@ -62,22 +62,26 @@ namespace Web.Controllers
                 return HttpNotFound();
             }
 
-            var bestClimb = user.Climbs
-                .Where(c => c.Succeeded)
-                .OrderBy(c => c.Route.Grade.Id)
-                .FirstOrDefault();
-            int bestClimbGradeId = (bestClimb != null) ? bestClimb.Route.GradeId : default(int);
+            var routes = Context.Routes.Include("Grade").Include("Color").AsQueryable();
 
-            // "Pointer" math on the grade Ids! Here be dragons.
-            var routes = Context.Routes.Include("Grade").Include("Color")
-                .OrderBy(r => Math.Abs(r.GradeId - bestClimbGradeId))
-                .Take(5)
-                .ToList();
+            var bestClimb = user.GetHighestGradeClimb();
+            if (bestClimb != null)
+            {
+                // Get similar grade climbs
+                routes = routes.OrderByClosestToGrade(bestClimb.Route.Grade);
+            }
+            else
+            {
+                // Get the easiest ones
+                routes = routes.OrderByDifficulty();
+            }
+
+            var routeList = routes.Take(5).ToList();
 
             var vm = new SuggestedRoutesViewModel
                 {
                     BestClimb = bestClimb,
-                    SuggestedRoutes = routes
+                    SuggestedRoutes = routeList
                 };
 
             return View(vm);
